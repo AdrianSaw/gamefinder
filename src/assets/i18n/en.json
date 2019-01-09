@@ -1,0 +1,16 @@
+{
+  "application": {
+    "name": "GameFinder"
+  },
+  "menu": {
+    "home": "Home",
+    "games": "Search Games",
+    "my-games": "My Announcements",
+    "faq": "FAQ",
+    "login": "Login",
+    "register": "Register",
+    "settings": "Settings",
+    "profile": "Profile",
+    "logout": "Logout"
+  }
+}

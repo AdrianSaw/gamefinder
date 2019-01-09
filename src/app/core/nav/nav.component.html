@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark main_navigation">
+  <a class="navbar-brand" href="#">Logo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" routerLink="">{{ 'menu.home' | translate }}</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" href="#">{{ 'menu.games' | translate }}</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" href="#">{{ 'menu.my-games' | translate }}</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" href="#">{{ 'menu.faq' | translate }}</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" routerLink="/signin">{{ 'menu.login' | translate }}</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <a class="nav-link" routerLink="signup">{{ 'menu.register' | translate }}</a>
+      </li>
+    </ul>
+    <div class="form-inline my-2 my-lg-0">
+      <div class="nav-item dropdown" dropdown>
+        <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle" aria-controls="dropdown-basic">
+            {{ 'menu.settings' | translate }}
+        </button>
+        <div id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+          <a class="dropdown-item" href="#">{{ 'menu.profile' | translate }}</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="Logout()">{{ 'menu.logout' | translate }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</nav>

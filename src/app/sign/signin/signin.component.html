@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="form-wrapper">
+      <form [formGroup]="signinForm" (ngSubmit)="onSignIn()">
+        <div class="form-group">
+          <input type="email" class="form-control" id="field_email" formControlName="email" placeholder="email">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" id="field_password" formControlName="password" placeholder="hasło">
+        </div>
+        <div class="form-group signin">
+          <button type="submit" [disabled]="!signinForm.valid">Zaloguj</button>
+        </div>
+        <div class="form-group">
+            <button type="button">Przypomnienie hasla</button>
+        </div>
+        <div class="form-group">
+          <a [routerLink]="'/signup'">Nie posiadasz konta? Stworz je</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

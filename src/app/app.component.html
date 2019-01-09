@@ -1,0 +1,11 @@
+<core-nav></core-nav>
+<div class="language-select">
+  <label for="language-picker">Chose Language
+    <select id="language-picker" #langSelect (change)="translate.use(langSelect.value)">
+      <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+    </select>
+  </label>
+</div>
+<router-outlet></router-outlet>
+<ngx-spinner bdColor="rgba(0,0,0,0.7)" size="large" color="#faffe7" loadingText="Loading..." type="ball-spin-clockwise">
+</ngx-spinner>
