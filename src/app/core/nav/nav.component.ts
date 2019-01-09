@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../storage/storage.service';
+import { AuthenticationService } from '../auth/auth.service';
 
 @Component({
   selector: 'core-nav',
@@ -7,13 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor( ) { }
+  constructor(
+    private storageService: StorageService,
+    private authService: AuthenticationService
+  ) { }
 
   ngOnInit() {
   }
 
   logout() {
-    console.log('logged out');
+    this.storageService.clear();
+    this.authService.isAuthenticated$.next(false);
   }
 
 }

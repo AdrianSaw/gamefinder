@@ -1,8 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import './scss/reset.scss';
+@import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700&amp;subset=latin-ext');
 
 body {
-  background-image: url(./assets/img/tawern.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
+  font-family: 'Nunito', sans-serif;
 }
