@@ -24,4 +24,8 @@ export class AppComponent implements OnInit {
       }
     }
   }
+
+  selectLangugage(lang) {
+    this.translate.use(lang);
+  }
 }

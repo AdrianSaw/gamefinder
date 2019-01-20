@@ -1,28 +1,42 @@
-<div class="container">
+<div class="container new-page">
   <div class="row justify-content-center">
     <div class="form-wrapper">
+      <h2>Rejestracja</h2>
       <form [formGroup]="signupForm" (ngSubmit)="onSignUp()">
         <div class="form-group">
-          <input type="text" class="form-control" id="field_name" formControlName="name" placeholder="name">
+          <label for="field_name">Nazwa Użytkownika</label>
+          <input type="text" class="form-control" id="field_name" formControlName="name" placeholder="Wprowadz nazwe użytkownika">
+          <span class="form-err">Wprowadz nazwe użytkownika</span>
         </div>
         <div class="form-group">
-          <input type="email" class="form-control" id="field_email" formControlName="email" placeholder="email">
+          <label for="field_email">Email</label>
+          <input type="email" class="form-control" id="field_email" formControlName="email" placeholder="Wprowadz email">
+          <span class="form-err">Wprowadz poprawny email</span>
         </div>
         <div class="form-group">
-          <input type="password" class="form-control" id="field_password" formControlName="password" placeholder="hasło">
+          <label for="field_password">Hasło</label>
+          <input type="password" class="form-control" id="field_password" formControlName="password" placeholder="Wprowadz hasło">
+            <span class="form-err">Hasła nie są takie same</span>
         </div>
         <div class="form-group">
+          <label for="field_confirm_password">Powtórz Hasło</label>
           <input type="password" class="form-control" id="field_confirm_password" formControlName="confirm_password"
-            placeholder="hasło">
+            placeholder="Ponownie wprowadz hasło">
+            <span class="form-err">Hasła nie są takie same</span>
         </div>
+        <div class="form-group rights">
+            <label for="field_rights" class="d-flex align-items-center">
+              <input type="checkbox" class="form-control" id="field_rights" formControlName="rights">
+              Wyrażam zgode na przetwania moich danych osobowych
+            </label>
+          </div>
         <div class="form-group text-center">
           <button type="submit" class="btn btn-wide" [disabled]="!signupForm.valid" [ngClass]="!signupForm.valid ? 'disabled' : 'btn-green'">Zaloguj</button>
         </div>
-        <div class="form-group d-flex flex-column align-items-center">
-          <a href="#" class="btn-link">Przypomnienie hasla</a>
-          <a [routerLink]="'/signup'" class="btn-link">Nie posiadasz konta? Stworz je</a>
-        </div>
       </form>
+      <div class="form-group text-center">
+        <a [routerLink]="'/signin'" class="btn-link">Posiadasz konto? Zaloguj sie</a>
+      </div>
     </div>
   </div>
 </div>

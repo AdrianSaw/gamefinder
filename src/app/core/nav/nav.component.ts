@@ -8,13 +8,18 @@ import { AuthenticationService } from '../auth/auth.service';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-
+  isCollapsed = true;
+  auth: boolean;
   constructor(
     private storageService: StorageService,
     private authService: AuthenticationService
   ) { }
 
   ngOnInit() {
+    this.authService.isAuthenticated$.subscribe(auth => {
+      this.auth = auth;
+      console.log(this.auth);
+    });
   }
 
   logout() {

@@ -1,7 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-@import './scss/reset.scss';
 @import url('https://fonts.googleapis.com/css?family=Nunito:300,400,700&amp;subset=latin-ext');
 
-body {
-  font-family: 'Nunito', sans-serif;
-}
+@import './scss/reset.scss';
+@import './scss/general.scss';
