@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { FaqComponent } from './core/faq/faq.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -21,6 +22,7 @@ describe('AppComponent', () => {
         AppComponent,
         LandingComponent,
         NotFoundComponent,
+        FaqComponent,
         NavComponent
       ],
       imports: [

@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { LandingComponent } from './core/landing/landing.component';
 import { NavComponent } from './core/nav/nav.component';
+import { FaqComponent } from './core/faq/faq.component';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -25,7 +26,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     AppComponent,
     NotFoundComponent,
     LandingComponent,
-    NavComponent
+    NavComponent,
+    FaqComponent
   ],
   imports: [
     BrowserModule,

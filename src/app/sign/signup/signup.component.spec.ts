@@ -4,6 +4,7 @@ import { SignupComponent } from './signup.component';
 
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('SignupComponent', () => {
   let component: SignupComponent;
@@ -22,7 +23,8 @@ describe('SignupComponent', () => {
       imports: [
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forRoot(routes, { useHash: true })
+        RouterModule.forRoot(routes, { useHash: true }),
+        SharedModule
       ]
     })
     .compileComponents();
