@@ -1,13 +1,13 @@
-import { TestBed, async, inject, ComponentFixture } from '@angular/core/testing';
+import { TestBed, async, inject } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { SigninComponent } from 'src/app/sign/signin/signin.component';
 
 import { AuthGuard } from './auth.guard';
-import { SigninComponent } from 'src/app/sign/signin/signin.component';
-import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 describe('AuthGuard', () => {
-  let testForm: FormGroup;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -21,7 +21,7 @@ describe('AuthGuard', () => {
         ),
         FormsModule,
         ReactiveFormsModule
-    ]
+      ]
     });
   });
 

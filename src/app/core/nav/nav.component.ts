@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
 import { StorageService } from '../storage/storage.service';
 import { AuthenticationService } from '../auth/auth.service';
 
 @Component({
-  selector: 'core-nav',
+  selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss']
 })
@@ -15,14 +16,14 @@ export class NavComponent implements OnInit {
     private authService: AuthenticationService
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.authService.isAuthenticated$.subscribe(auth => {
       this.auth = auth;
       console.log(this.auth);
     });
   }
 
-  logout() {
+  logout(): void {
     this.storageService.clear();
     this.authService.isAuthenticated$.next(false);
   }

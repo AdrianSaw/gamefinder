@@ -16,7 +16,7 @@ export class StorageService {
     }
   }
 
-  clear() {
+  clear(): void {
     if (this.hasStorage) {
       localStorage.clear();
       return;
@@ -30,14 +30,14 @@ export class StorageService {
     return;
   }
 
-  setItem(key: string, value: any) {
+  setItem(key: string, value: any): void {
     if (this.hasStorage) {
       localStorage.setItem(key, value);
       return;
     }
   }
 
-  removeItem(key: string) {
+  removeItem(key: string): void {
     if (this.hasStorage) {
       localStorage.removeItem(key);
       return;

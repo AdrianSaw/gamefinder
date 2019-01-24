@@ -1,4 +1,4 @@
-import { TestBed, async, inject, ComponentFixture } from '@angular/core/testing';
+import { TestBed, async, inject } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,7 @@ describe('NoAuthGuard', () => {
       providers: [NoAuthGuard],
       imports: [
         RouterTestingModule
-    ]
+      ]
     });
   });
 

@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/core/auth/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { StorageService } from 'src/app/core/storage/storage.service';
-import { PasswordValidation } from '../password.validation';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+
+import { StorageService } from 'src/app/core/storage/storage.service';
+
+import { PasswordValidation } from '../password.validation';
 
 @Component({
   selector: 'app-signup',
@@ -23,11 +25,11 @@ export class SignupComponent implements OnInit {
     private fb: FormBuilder
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.createForm();
   }
 
-  createForm() {
+  createForm(): void {
     this.signupForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -39,7 +41,7 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  onSignUp() {
+  onSignUp(): void {
     console.log(this.signupForm);
     this.spinner.show();
     setTimeout(() => {

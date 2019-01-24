@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { FaqComponent } from './faq.component';
-import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('FaqComponent', () => {
   let component: FaqComponent;

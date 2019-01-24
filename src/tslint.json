@@ -3,11 +3,11 @@
     "tslint-eslint-rules"
   ],
   "rulesDirectory": [
-    "node_modules/codelyzer",
-    "node_modules/tslint-origin-ordered-imports-rule/dist",
-    "node_modules/tslint-consistent-codestyle/rules",
-    "node_modules/tslint-rxjs-subject-restrictions-rule/dist",
-    "node_modules/tslint-defocus/dist"
+    "../node_modules/codelyzer",
+    "../node_modules/tslint-origin-ordered-imports-rule/dist",
+    "../node_modules/tslint-consistent-codestyle/rules",
+    "../node_modules/tslint-rxjs-subject-restrictions-rule/dist",
+    "../node_modules/tslint-defocus/dist"
   ],
   "rules": {
     "defocus": true,
@@ -43,8 +43,7 @@
     "eofline": true,
     "forin": true,
     "import-blacklist": [
-      true,
-      "rxjs"
+      true
     ],
     "import-spacing": true,
     "import-destructuring-spacing": true,
@@ -92,14 +91,6 @@
     "no-arg": true,
     "no-bitwise": true,
     "no-consecutive-blank-lines": true,
-    "no-console": [
-      true,
-      "log",
-      "debug",
-      "time",
-      "timeEnd",
-      "trace"
-    ],
     "no-construct": true,
     "no-debugger": true,
     "no-duplicate-super": true,
@@ -120,7 +111,7 @@
     "no-trailing-whitespace": false,
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
-    "no-unused-variable": true,
+    "no-duplicate-variable": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
@@ -175,13 +166,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "$your-selector$",
+      "app",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "$your-selector$",
+      "app",
       "kebab-case"
     ],
     "use-input-property-decorator": true,

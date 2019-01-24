@@ -17,15 +17,13 @@ export class AppComponent implements OnInit {
     translate.use(browserLang.match(/pl|en/) ? browserLang : 'pl');
   }
 
-  ngOnInit() {
-    if (environment.production) {
-      if (location.protocol === 'http:') {
-        window.location.href = location.href.replace('http', 'https');
-      }
+  ngOnInit(): void {
+    if (environment.production && location.protocol === 'http') {
+      window.location.href = location.href.replace('http', 'https');
     }
   }
 
-  selectLangugage(lang) {
+  selectLangugage(lang: string): void {
     this.translate.use(lang);
   }
 }

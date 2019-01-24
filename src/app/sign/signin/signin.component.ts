@@ -19,18 +19,18 @@ export class SigninComponent implements OnInit {
     private fb: FormBuilder
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.createForm();
   }
 
-  createForm() {
+  createForm(): void {
     this.signinForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
-    })
+    });
   }
 
-  onSignIn() {
+  onSignIn(): void {
     this.spinner.show();
     setTimeout(() => {
       this.authService.isAuthenticated$.next(true);
