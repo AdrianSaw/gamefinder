@@ -10,6 +10,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FaqComponent } from './core/faq/faq.component';
+import { SharedModule } from './shared/shared.module';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -29,6 +30,7 @@ describe('AppComponent', () => {
         AppRoutingModule,
         NgxSpinnerModule,
         HttpClientModule,
+        SharedModule,
         TranslateModule.forRoot({
           useDefaultLang: true,
           loader: {
