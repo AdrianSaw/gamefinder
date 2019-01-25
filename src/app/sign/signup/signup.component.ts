@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
     private fb: FormBuilder
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.createForm();
   }
 

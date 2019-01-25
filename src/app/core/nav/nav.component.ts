@@ -16,7 +16,7 @@ export class NavComponent implements OnInit {
     private authService: AuthenticationService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.authService.isAuthenticated$.subscribe(auth => {
       this.auth = auth;
       console.log(this.auth);

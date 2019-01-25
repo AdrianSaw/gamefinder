@@ -19,7 +19,7 @@ export class SigninComponent implements OnInit {
     private fb: FormBuilder
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.createForm();
   }
 

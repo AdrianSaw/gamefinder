@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     translate.use(browserLang.match(/pl|en/) ? browserLang : 'pl');
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     if (environment.production && location.protocol === 'http') {
       window.location.href = location.href.replace('http', 'https');
     }

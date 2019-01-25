@@ -7,10 +7,10 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class FaqComponent implements OnInit {
-  oneAtATime: boolean = true;
+  oneAtATime = true;
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
 }
