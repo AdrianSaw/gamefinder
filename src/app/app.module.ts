@@ -17,6 +17,7 @@ import { NavComponent } from './core/nav/nav.component';
 import { FaqComponent } from './core/faq/faq.component';
 
 import { environment } from '../environments/environment';
+import { SettingsModule } from './settings/settings.module';
 
 export function HttpLoaderFactory(httpClient: HttpClient): any {
   return new TranslateHttpLoader(httpClient);
@@ -43,6 +44,7 @@ export function HttpLoaderFactory(httpClient: HttpClient): any {
     }),
     SharedModule,
     SignModule,
+    SettingsModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],

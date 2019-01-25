@@ -1,0 +1,39 @@
+.profile-wrapper {
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+  @media all and (min-width: 576px) {
+    box-shadow: 0 0 8px 2px #777;
+    border-radius: 6px;
+  }
+
+  .username {
+    font-weight: bold;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin: 2rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #000;
+  }
+
+  .avatar {
+    text-align: right;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .rating {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-top: 2px solid #777;
+    padding-top: 1rem;
+  }
+}

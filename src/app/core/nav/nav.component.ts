@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { StorageService } from '../storage/storage.service';
 import { AuthenticationService } from '../auth/auth.service';
@@ -13,7 +14,8 @@ export class NavComponent implements OnInit {
   auth: boolean;
   constructor(
     private storageService: StorageService,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -26,6 +28,7 @@ export class NavComponent implements OnInit {
   logout(): void {
     this.storageService.clear();
     this.authService.isAuthenticated$.next(false);
+    this.router.navigateByUrl('');
   }
 
 }

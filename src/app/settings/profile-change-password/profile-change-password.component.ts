@@ -12,4 +12,7 @@ export class ProfileChangePasswordComponent implements OnInit {
   ngOnInit() {
   }
 
+  changePassword(): void {
+    console.log('%cchange password', 'color: #881010');
+  }
 }

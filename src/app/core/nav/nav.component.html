@@ -39,10 +39,10 @@
         <a class="nav-link" href="#">{{ 'menu.my-games' | translate }}</a>
       </li>
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <a class="nav-link" href="#">{{ 'menu.faq' | translate }}</a>
+        <a class="nav-link" routerLink="/faq">{{ 'menu.faq' | translate }}</a>
       </li>
       <li class="nav-item d-block d-lg-none" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        <a class="nav-link" href="#">{{ 'menu.profile' | translate }}</a>
+        <a class="nav-link" routerLink="profile">{{ 'menu.profile' | translate }}</a>
       </li>
       <li class="nav-item d-block d-lg-none" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a class="nav-link" href="javascript:;" (click)="logout()">{{ 'menu.logout' | translate }}</a>
@@ -56,7 +56,7 @@
             {{ 'menu.settings' | translate }}
         </button>
         <div id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
-          <a class="dropdown-item" href="#">{{ 'menu.profile' | translate }}</a>
+          <a class="dropdown-item" routerLink="profile">{{ 'menu.profile' | translate }}</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="javascript:;" (click)="logout()">{{ 'menu.logout' | translate }}</a>
         </div>

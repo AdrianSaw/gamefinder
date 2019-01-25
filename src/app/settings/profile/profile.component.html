@@ -1,3 +1,25 @@
-<p>
-  profile works!
-</p>
+<div class="container new-page">
+  <div class="profile-wrapper">
+    <h2 class='username'>Nickname</h2>
+    <div class="row">
+      <div class="col-12 col-md-9 order-2 order-md-1">
+          <h3 class="section-title">Description</h3>
+          <app-profile-bio></app-profile-bio>
+      </div>
+      <div class="col-12 col-md-3 order-1 order-md-2 avatar">
+          <app-profile-avatar></app-profile-avatar>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="account-data">
+          <app-profile-email></app-profile-email>
+          <app-profile-change-password></app-profile-change-password>
+          <div class="rating">
+            <app-profile-rating></app-profile-rating>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
