@@ -1,4 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { ProfileBioComponent } from './profile-bio.component';
 
@@ -8,7 +11,14 @@ describe('ProfileBioComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfileBioComponent ]
+      declarations: [
+        ProfileBioComponent
+      ],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        SharedModule
+      ]
     })
     .compileComponents();
   }));

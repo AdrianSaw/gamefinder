@@ -20,6 +20,7 @@
   }
 }
 
+
 // Forms styles
 
 input.form-control {
@@ -37,6 +38,28 @@ input.form-control:focus {
 input[type='email'] {
   max-width: 300px;
   margin-top: 0.5rem;
+}
+
+.form-err {
+  display: none;
+}
+
+input.ng-invalid.ng-touched {
+  border-bottom: 2px solid #d21515;
+  +.form-err {
+    color: #d21515;
+    display: block;
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    max-width: 300px;
+  }
+}
+
+input.ng-valid.ng-touched {
+  border-bottom: 2px solid #006611;
 }
 
 .btn {

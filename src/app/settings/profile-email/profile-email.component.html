@@ -1,10 +1,11 @@
 <div class="email" [ngClass]="{'edit': edit, 'editable': !edit}" (click)="editEmail()">
-  Email: <span>test@gamefinder.com</span>
+  Email: <span>{{ email }}</span>
 </div>
 
 <form [formGroup]="changeEmailForm" (ngSubmit)="onEmailChange()" *ngIf="edit">
   <div class="form-group">
     <input type="email" class="form-control" id="field_email" formControlName="email" placeholder="Wprowadz nowy email">
+    <span class="form-err">Wprowadz poprawny email</span>
   </div>
   <div class="form-group">
     <button type="submit" class="btn btn-submit" [disabled]="!changeEmailForm.valid" [ngClass]="!changeEmailForm.valid ? 'disabled' : 'btn-green'">Potwierdź</button>

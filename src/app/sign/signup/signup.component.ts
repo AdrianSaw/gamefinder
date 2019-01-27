@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 
 import { StorageService } from 'src/app/core/storage/storage.service';
 
-import { PasswordValidation } from '../password.validation';
+import { PasswordValidation } from 'src/app/shared/validator/password.validation';
 
 @Component({
   selector: 'app-signup',

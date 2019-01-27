@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
@@ -9,6 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./profile-email.component.scss']
 })
 export class ProfileEmailComponent implements OnInit {
+  @Input() email: string;
   edit = false;
   changeEmailForm: FormGroup;
 
@@ -36,6 +37,9 @@ export class ProfileEmailComponent implements OnInit {
     this.spinner.show();
     setTimeout(() => {
       this.toastr.success('Email został zmieniony!');
+      this.edit = !this.edit;
+      this.email = this.changeEmailForm.value.email;
+      this.changeEmailForm.reset();
       this.spinner.hide();
     }, 2000);
   }

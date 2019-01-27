@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { StorageService } from '../storage/storage.service';
+import { ProfileService } from 'src/app/settings/profile.service';
+
 import { AuthenticationService } from '../auth/auth.service';
+import { StorageService } from '../storage/storage.service';
 
 @Component({
   selector: 'app-nav',
@@ -12,16 +14,22 @@ import { AuthenticationService } from '../auth/auth.service';
 export class NavComponent implements OnInit {
   isCollapsed = true;
   auth: boolean;
+  username: string;
   constructor(
     private storageService: StorageService,
     private authService: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private profileService: ProfileService
   ) { }
 
   ngOnInit() {
-    this.authService.isAuthenticated$.subscribe(auth => {
+    this.authService.isAuthenticated$.subscribe( auth => {
       this.auth = auth;
       console.log(this.auth);
+    });
+
+    this.profileService.getUserData().subscribe( data => {
+      this.username = data.name;
     });
   }
 

@@ -1,4 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { ProfileChangePasswordComponent } from './profile-change-password.component';
 
@@ -8,7 +11,14 @@ describe('ProfileChangePasswordComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfileChangePasswordComponent ]
+      declarations: [
+        ProfileChangePasswordComponent
+      ],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        SharedModule
+      ]
     })
     .compileComponents();
   }));
