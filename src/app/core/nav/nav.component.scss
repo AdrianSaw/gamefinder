@@ -11,11 +11,45 @@
       margin: 0 auto;
     }
   }
+
   li {
     list-style: none;
+    font-weight: bold;
+    letter-spacing: 1px;
   }
+
   a {
     cursor: pointer;
+  }
+
+  .user-menu-icon {
+    display: flex;
+    align-items: center;
+    width: 120px;
+    height: 32px;
+    margin-right: 2rem;
+    .avatar-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50px;
+    }
+    .username {
+      margin-left: 0.75rem;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+  }
+
+  .dropdown-menu {
+    .dropdown-item {
+      letter-spacing: 1px;
+      font-weight: bold;
+      &:hover, &:focus {
+        background-color: #fff;
+        color: rgba(0, 0, 0, 0.5);
+      }
+    }
   }
 
   .collapse:not(.show) {

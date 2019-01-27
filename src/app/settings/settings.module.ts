@@ -8,6 +8,7 @@ import { ProfileRatingComponent } from './profile-rating/profile-rating.componen
 import { ProfileAvatarComponent } from './profile-avatar/profile-avatar.component';
 import { SettingsRoutingModule } from './settings-routing.module';
 import { ProfileEmailComponent } from './profile-email/profile-email.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,10 +21,8 @@ import { ProfileEmailComponent } from './profile-email/profile-email.component';
   ],
   imports: [
     CommonModule,
-    SettingsRoutingModule
-  ],
-  exports: [
-    SettingsRoutingModule
+    SettingsRoutingModule,
+    SharedModule
   ]
 })
 export class SettingsModule { }

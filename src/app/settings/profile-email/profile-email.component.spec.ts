@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ProfileEmailComponent } from './profile-email.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('ProfileEmailComponent', () => {
   let component: ProfileEmailComponent;
@@ -8,7 +10,14 @@ describe('ProfileEmailComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfileEmailComponent ]
+      declarations: [
+        ProfileEmailComponent
+      ],
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        SharedModule
+      ]
     })
     .compileComponents();
   }));

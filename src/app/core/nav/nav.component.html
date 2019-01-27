@@ -52,9 +52,10 @@
     <!-- Logged user desktop settings dropdown -->
     <div class="form-inline my-2 my-lg-0 d-none d-lg-block" *ngIf="auth">
       <div class="nav-item dropdown" dropdown>
-        <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle" aria-controls="dropdown-basic">
-            {{ 'menu.settings' | translate }}
-        </button>
+        <a id="button-basic" dropdownToggle class="user-menu-icon" aria-controls="dropdown-basic">
+          <img src="https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg" alt="user avatar" class="avatar-icon">
+          <span class="username">Nickname</span>
+        </a>
         <div id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
           <a class="dropdown-item" routerLink="profile">{{ 'menu.profile' | translate }}</a>
           <div class="dropdown-divider"></div>
