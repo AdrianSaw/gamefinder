@@ -5,6 +5,7 @@ import { ProfileService } from 'src/app/settings/profile.service';
 
 import { AuthenticationService } from '../auth/auth.service';
 import { StorageService } from '../storage/storage.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-nav',
@@ -14,7 +15,7 @@ import { StorageService } from '../storage/storage.service';
 export class NavComponent implements OnInit {
   isCollapsed = true;
   auth: boolean;
-  username: string;
+  user: User;
   constructor(
     private storageService: StorageService,
     private authService: AuthenticationService,
@@ -29,7 +30,7 @@ export class NavComponent implements OnInit {
     });
 
     this.profileService.getUserData().subscribe( data => {
-      this.username = data.name;
+      this.user = data;
     });
   }
 

@@ -4,7 +4,6 @@ import { Rating } from 'src/app/core/models/user';
 
 import { ProfileRatingComponent } from './profile-rating.component';
 
-
 describe('ProfileRatingComponent', () => {
   let component: ProfileRatingComponent;
   let fixture: ComponentFixture<ProfileRatingComponent>;
