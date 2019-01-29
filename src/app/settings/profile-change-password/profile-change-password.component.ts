@@ -42,6 +42,7 @@ export class ProfileChangePasswordComponent implements OnInit {
     setTimeout(() => {
       this.toastr.success('Hasło zostało zmienione!');
       this.edit = !this.edit;
+      this.changePasswordForm.reset();
       this.spinner.hide();
     }, 2000);
   }
