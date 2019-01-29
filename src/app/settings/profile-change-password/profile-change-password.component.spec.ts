@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 
@@ -15,8 +14,6 @@ describe('ProfileChangePasswordComponent', () => {
         ProfileChangePasswordComponent
       ],
       imports: [
-        FormsModule,
-        ReactiveFormsModule,
         SharedModule
       ]
     })

@@ -18,6 +18,7 @@ import { FaqComponent } from './core/faq/faq.component';
 
 import { environment } from '../environments/environment';
 import { SettingsModule } from './settings/settings.module';
+import { GamesModule } from './games/games.module';
 
 export function HttpLoaderFactory(httpClient: HttpClient): any {
   return new TranslateHttpLoader(httpClient);
@@ -45,6 +46,7 @@ export function HttpLoaderFactory(httpClient: HttpClient): any {
     SharedModule,
     SignModule,
     SettingsModule,
+    GamesModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],

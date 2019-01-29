@@ -26,7 +26,6 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     this.authService.isAuthenticated$.subscribe( auth => {
       this.auth = auth;
-      console.log(this.auth);
     });
 
     this.profileService.getUserData().subscribe( data => {

@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Rating } from 'src/app/core/models/user';
+import { Rating } from 'src/app/core/models/rating';
 
 import { ProfileRatingComponent } from './profile-rating.component';
 
@@ -20,11 +20,12 @@ describe('ProfileRatingComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ProfileRatingComponent);
     component = fixture.componentInstance;
-    component.rating = new Rating({
+    const rating = new Rating({
       friendlyRate: 1,
       mentorRate: 1,
       veteranRate: 1
     });
+    component.rating = rating;
     fixture.detectChanges();
   });
 

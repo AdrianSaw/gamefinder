@@ -1,0 +1,121 @@
+.games-wrapper {
+  width: 100%;
+  border-radius: 6px;
+  padding: 2rem;
+  @media all and (min-width: 768px) {
+    box-shadow: 0 0 8px 2px #777;
+    margin: 0 2rem 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+  }
+
+  .divider {
+    margin: 2rem auto 1rem;
+    max-width: 90%;
+    border-bottom: 2px solid #777;
+    border-top: none;
+  }
+
+  .games-list {
+    margin-top: 2rem;
+
+    .game {
+      background-color: #f7f7f7;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-bottom: 2px solid #ccc;
+      border-radius: 6px;
+      box-shadow: 0 0 8px 1px #ccc;
+
+      .game-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h4 {
+          font-weight: bold;
+          font-size: 1.25rem;
+          line-height: 1.5rem;
+          letter-spacing: 1px;
+          height: 24px;
+          overflow: hidden;
+        }
+      }
+
+      hr {
+        border-bottom: 2px solid #ccc;
+        border-top: none;
+      }
+
+      .game-body {
+        margin-top: 1rem;
+
+        .description {
+          line-height: 1.25rem;
+          height: 120px;
+          overflow: auto;
+        }
+
+        .details {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          margin-top: 1rem;
+          @media all and (min-width: 768px) {
+            flex-direction: row;
+            align-items: center;
+          }
+
+          .left {
+            .location {
+              margin-top: 0.5rem;
+              height: 16px;
+              overflow: hidden;
+            }
+          }
+
+          .right {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            height: 40px;
+            overflow: hidden;
+            margin-top: 1rem;
+            @media all and(min-width: 768px) {
+              margin-top: 0;
+            }
+
+            .avatar-icon {
+              width: 32px;
+              height: 32px;
+              border-radius: 50px;
+            }
+
+            span {
+              margin-left: 0.5rem;
+              font-weight: bold;
+              letter-spacing: 1px;
+              max-width: 200px;
+            }
+          }
+        }
+
+        b {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .empty {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }
+}

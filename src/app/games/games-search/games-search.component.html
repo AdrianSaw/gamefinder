@@ -1,3 +1,9 @@
-<p>
-  games-search works!
-</p>
+<div class="d-flex align-items-center search">
+  <label for="search">Wyszukaj</label>
+  <input
+    [(ngModel)]="search"
+    (ngModelChange)="onSearch($event)"
+    class="form-control"
+    id="search">
+</div>
+

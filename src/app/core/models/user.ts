@@ -1,5 +1,7 @@
+import { Rating } from './rating';
+
 export class User {
-  id: string;
+  id: number;
   name: string;
   avatar: string;
   email: string;
@@ -13,17 +15,5 @@ export class User {
     this.email = user.email;
     this.bio = user.bio;
     this.rating = user.rating;
-  }
-}
-
-export class Rating {
-  friendlyRate: number;
-  mentorRate: number;
-  veteranRate: number;
-
-  constructor(rating: Rating) {
-    this.friendlyRate = rating.friendlyRate;
-    this.mentorRate = rating.mentorRate;
-    this.veteranRate = rating.veteranRate;
   }
 }
