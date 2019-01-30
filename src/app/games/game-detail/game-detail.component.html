@@ -1,3 +1,38 @@
-<p>
-  game-detail works!
-</p>
+<div class="container new-page">
+  <ng-container *ngIf="gameDetail; else error">
+    <div class="row justify-content-center">
+      <div class="game-wrapper">
+        <div class="back" (click)="goBack()"><i class="fa fa-2x fa-arrow-circle-left" aria-hidden="true"></i>Go Back</div>
+        <div class="forward" (click)="submitPropose()">Send Proposal<i class="fa fa-2x fa-handshake-o" aria-hidden="true"></i></div>
+        <h3>{{ gameDetail.name }}</h3>
+        <div class="description">
+          {{ gameDetail.description }}
+        </div>
+        <div class="game-details">
+          <p><b>Kiedy:</b> {{ formatDate(gameDetail.finish_date) }}</p>
+          <p class="location"><b>Miejsce:</b> {{ gameDetail.location }}</p>
+        </div>
+        <hr>
+        <div class="user-detail text-center">
+          <h3>{{ gameDetail.user.name }}</h3>
+          <img [src]="gameDetail.user.avatar" appLazyLoad alt="user avatar" class="img-full">
+          <div class="rating">
+            <span class="friendly">
+              <i class="fa fa-handshake-o" aria-hidden="true"></i>{{ gameDetail.user.rating.friendlyRate }}
+            </span>
+            <span class="mentor">
+              <i class="fa fa-graduation-cap" aria-hidden="true"></i>{{ gameDetail.user.rating.mentorRate }}
+            </span>
+            <span class="veteran">
+              <i class="fa fa-trophy" aria-hidden="true"></i>{{ gameDetail.user.rating.veteranRate }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #error>
+    <p class="err">Coś poszło nie tak albo ogłoszenie zostało usuniete, <span (click)="goBack()">wróć do poprzedniej
+        strony</span></p>
+  </ng-template>
+</div>

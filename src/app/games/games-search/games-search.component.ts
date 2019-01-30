@@ -22,7 +22,7 @@ export class GamesSearchComponent implements OnInit {
     const games = [...this.games];
     let results = [];
     if (evt.length > 3) {
-      results = games.filter(game => game.name.trim().match(evt.trim()));
+      results = games.filter(game => game.name.trim().toLowerCase().match(evt.trim().toLowerCase()));
       this.filteredGames.emit(results);
     } else {
       this.filteredGames.emit(this.games);

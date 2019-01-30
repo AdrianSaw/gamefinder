@@ -1,7 +1,7 @@
 import { Rating } from './rating';
 
 export class User {
-  id: number;
+  id: string;
   name: string;
   avatar: string;
   email: string;

@@ -1,7 +1,7 @@
 import * as moment from 'moment';
 
 export class Game {
-  id: number;
+  id: string;
   name: string;
   description: string;
   location: string;

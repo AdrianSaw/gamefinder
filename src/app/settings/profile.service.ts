@@ -13,7 +13,7 @@ export class ProfileService {
 
   getUserData(): Observable<User> {
     const user = new User({
-      id: 1,
+      id: '1',
       name: 'GameFinder',
       avatar: 'https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg',
       email: 'test@gamefinder.com',

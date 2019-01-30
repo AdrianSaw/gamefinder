@@ -10,10 +10,12 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { CapitalizePipe } from './pipes/capitalize/capitalize.pipe';
+import { LazyLoadDirective } from './directives/lazyload.directive';
 
 @NgModule({
   declarations: [
-    CapitalizePipe
+    CapitalizePipe,
+    LazyLoadDirective
   ],
   imports: [
     CommonModule,
@@ -41,6 +43,7 @@ import { CapitalizePipe } from './pipes/capitalize/capitalize.pipe';
     NgxSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
+    LazyLoadDirective,
     TranslateModule
   ]
 })

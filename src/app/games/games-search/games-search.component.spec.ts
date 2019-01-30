@@ -26,14 +26,14 @@ describe('GamesSearchComponent', () => {
     fixture = TestBed.createComponent(GamesSearchComponent);
     component = fixture.componentInstance;
     const games = [new Game({
-      id: 2,
+      id: '2',
       name: 'test',
       description: 'test',
       startDate: moment('25-01-2019', 'DD-MM-YYYY'),
       finishDate: moment('21-02-2019', 'DD-MM-YYYY'),
       location: 'test',
       user: {
-        id: 1,
+        id: '1',
         name: 'test',
         avatar: 'img'
       }
