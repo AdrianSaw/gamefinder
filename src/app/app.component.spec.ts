@@ -1,6 +1,6 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NgxSpinnerModule } from 'ngx-spinner';
 
@@ -15,6 +15,10 @@ import { SharedModule } from './shared/shared.module';
 export function HttpLoaderFactory(httpClient: HttpClient): any {
   return new TranslateHttpLoader(httpClient);
 }
+
+let translate: TranslateService;
+let component: AppComponent;
+let fixture: ComponentFixture<AppComponent>;
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -39,14 +43,42 @@ describe('AppComponent', () => {
             deps: [HttpClient]
           }
         })
+      ],
+      providers: [
+        TranslateService
       ]
     }).compileComponents();
   }));
 
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    translate = TestBed.get(TranslateService);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
+  });
+
+  it('should set language to browser lang', () => {
+    spyOn(translate, 'getBrowserLang').and.returnValue('de');
+    expect(component.language).toBe('pl');
+  });
+
+  it('should check language click', () => {
+    spyOn(component, 'selectLangugage');
+    fixture.debugElement.nativeElement.querySelector('#eng-language').click();
+    expect(component.selectLangugage).toHaveBeenCalledWith('en');
+  });
+
+  it('should change language', () => {
+    component.selectLangugage('en');
+    translate.onLangChange.subscribe(current => {
+      if (current.lang !== 'pl') {
+        expect(current.lang).toBe('en');
+      }
+    });
   });
 
 });

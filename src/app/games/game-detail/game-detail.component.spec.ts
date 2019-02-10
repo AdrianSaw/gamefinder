@@ -4,6 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { GameDetailComponent } from './game-detail.component';
+import { ProfilePreviewComponent } from '../profile-preview/profile-preview.component';
 
 describe('GameDetailComponent', () => {
   let component: GameDetailComponent;
@@ -12,7 +13,8 @@ describe('GameDetailComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        GameDetailComponent
+        GameDetailComponent,
+        ProfilePreviewComponent
       ],
       imports: [
         RouterTestingModule,

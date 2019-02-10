@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class StorageService {
 
-  private hasStorage = true;
+  hasStorage = true;
 
   constructor() {
     try {
@@ -21,6 +21,7 @@ export class StorageService {
       localStorage.clear();
       return;
     }
+    return;
   }
 
   getItem(key: string): string | any {

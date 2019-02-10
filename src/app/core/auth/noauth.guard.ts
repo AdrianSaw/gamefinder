@@ -21,11 +21,9 @@ export class NoAuthGuard implements CanActivate {
 
   canActivate(): Observable<boolean> | Promise<boolean> | boolean {
     if (this.isAuthenticated) {
-      console.log('auth false');
       this.router.navigateByUrl('');
       return false;
     }
-    console.log('auth true');
     return true;
   }
 }

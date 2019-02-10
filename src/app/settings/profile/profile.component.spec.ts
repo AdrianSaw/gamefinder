@@ -39,4 +39,13 @@ describe('ProfileComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('user should be fetched', () => {
+    expect(component.user).toBeTruthy();
+  });
+
+  it('user name should be set', () => {
+    expect(component.user.name).toBe('GameFinder');
+  });
+
 });

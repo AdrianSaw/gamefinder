@@ -1,0 +1,46 @@
+.user-detail {
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+
+  .img-full {
+    max-width: 200px;
+    max-height: 300px;
+  }
+
+  .rating {
+    margin: 2rem 0 1rem;
+    padding: 0 0.25rem;
+    display: flex;
+    justify-content: center;
+
+    span {
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      margin-right: 1rem;
+    }
+
+    .fa-handshake-o {
+      color: #217d21;
+    }
+
+    .fa-graduation-cap {
+      color: #5b78bb;
+    }
+
+    .fa-trophy {
+      color: #9a1d1d;
+    }
+
+    .fa {
+      font-size: 2rem;
+      margin-right: 0.25rem;
+    }
+
+  }
+}

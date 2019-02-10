@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -8,20 +7,18 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  language: string;
   constructor(
     public translate: TranslateService
   ) {
     translate.addLangs(['pl', 'en']);
     translate.setDefaultLang('pl');
     const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/pl|en/) ? browserLang : 'pl');
+    this.language = browserLang.match(/pl|en/) ? browserLang : 'pl';
+    translate.use(this.language);
   }
 
-  ngOnInit() {
-    if (environment.production && location.protocol === 'http') {
-      window.location.href = location.href.replace('http', 'https');
-    }
-  }
+  ngOnInit() {}
 
   selectLangugage(lang: string): void {
     this.translate.use(lang);
