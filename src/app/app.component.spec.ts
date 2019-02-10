@@ -62,9 +62,10 @@ describe('AppComponent', () => {
   });
 
   it('should set language to browser lang', () => {
+    const browserLang = translate.getBrowserLang();
     spyOn(translate, 'getBrowserLang').and.returnValue('de');
     translate.getBrowserLang();
-    expect(component.language).toBe('pl' || 'en');
+    expect(component.language).toBe(browserLang);
   });
 
   it('should check language click', () => {
