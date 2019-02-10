@@ -16,12 +16,16 @@ describe('Storage Service', () => {
     expect(storageService).toBeTruthy();
   });
 
-  it('should set data', () => {
+  it('should set data and get it', () => {
+    storageService.setItem('foo', 'bar');
     expect(storageService.setItem('foo', 'bar')).toBeUndefined();
+    expect(storageService.getItem('foo')).toBe('bar');
   });
 
   it('should remove data', () => {
+    storageService.setItem('foo', 'bar');
     expect(storageService.removeItem('foo')).toBeUndefined();
+    expect(storageService.getItem('foo')).toBeNull();
   });
 
   it('should clear storage', () => {
