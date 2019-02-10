@@ -63,6 +63,7 @@ describe('AppComponent', () => {
 
   it('should set language to browser lang', () => {
     spyOn(translate, 'getBrowserLang').and.returnValue('de');
+    translate.getBrowserLang();
     expect(component.language).toBe('pl');
   });
 
