@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-profile-preview',
@@ -6,7 +6,6 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./profile-preview.component.scss']
 })
 export class ProfilePreviewComponent implements OnInit {
-  @Input() user: any;
   constructor() { }
 
   ngOnInit() {

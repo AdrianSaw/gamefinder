@@ -7,7 +7,7 @@ export class Game {
   location: string;
   startDate: moment.Moment;
   finishDate: moment.Moment;
-  user: object;
+  user: UserPreview;
 
   constructor(game: Game) {
     this.id = game.id;
@@ -18,4 +18,10 @@ export class Game {
     this.finishDate = game.finishDate;
     this.user = game.user;
   }
+}
+
+export class UserPreview {
+  id: string;
+  name: string;
+  avatar: string;
 }

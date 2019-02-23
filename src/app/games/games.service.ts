@@ -4,7 +4,6 @@ import { Observable, of } from 'rxjs';
 import * as moment from 'moment';
 
 import { Game } from './models/game';
-import { Rating } from '../core/models/rating';
 
 @Injectable({
   providedIn: 'root'
@@ -28,13 +27,7 @@ export class GamesService {
       user: {
         id: '1',
         name: 'test',
-        avatar: 'https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg',
-        bio: 'User description',
-        rating: new Rating({
-          friendlyRate: 22,
-          mentorRate: 77,
-          veteranRate: 3
-        })
+        avatar: 'https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg'
       }
     }),
     new Game({
@@ -49,17 +42,11 @@ export class GamesService {
       user: {
         id: '1',
         name: 'test',
-        avatar: 'https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg',
-        bio: 'User description',
-        rating: new Rating({
-          friendlyRate: 2,
-          mentorRate: 7,
-          veteranRate: 11
-        })
+        avatar: 'https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg'
       }
     }),
     new Game({
-      id: '33',
+      id: '3',
       name: 'test game #33 LFP 1 players',
       description: `
         Description...
@@ -68,99 +55,9 @@ export class GamesService {
       finishDate: moment('21-02-2019', 'DD-MM-YYYY'),
       location: 'Warszawa',
       user: {
-        id: '1',
-        name: 'test',
-        avatar: 'https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg',
-        bio: 'User description',
-        rating: new Rating({
-          friendlyRate: 22,
-          mentorRate: 7,
-          veteranRate: 13
-        })
-      }
-    }),
-    new Game({
-      id: '3',
-      name: 'test game #3 LFP 1 players',
-      description: `
-        Description...
-      `,
-      startDate: moment('25-01-2019', 'DD-MM-YYYY'),
-      finishDate: moment('21-02-2019', 'DD-MM-YYYY'),
-      location: 'Warszawa',
-      user: {
-        id: '1',
-        name: 'test',
-        avatar: 'https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg',
-        bio: 'User description',
-        rating: new Rating({
-          friendlyRate: 22,
-          mentorRate: 7,
-          veteranRate: 13
-        })
-      }
-    }),
-    new Game({
-      id: '4',
-      name: 'test game #4 LFP 1 players',
-      description: `
-        Description...
-      `,
-      startDate: moment('25-01-2019', 'DD-MM-YYYY'),
-      finishDate: moment('21-02-2019', 'DD-MM-YYYY'),
-      location: 'Warszawa',
-      user: {
-        id: '1',
-        name: 'test',
-        avatar: 'https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg',
-        bio: 'User description',
-        rating: new Rating({
-          friendlyRate: 22,
-          mentorRate: 7,
-          veteranRate: 13
-        })
-      }
-    }),
-    new Game({
-      id: '5',
-      name: 'test game #5 LFP 1 players',
-      description: `
-        Description...
-      `,
-      startDate: moment('25-01-2019', 'DD-MM-YYYY'),
-      finishDate: moment('21-02-2019', 'DD-MM-YYYY'),
-      location: 'Warszawa',
-      user: {
         id: '2',
-        name: 'test #2',
-        avatar: 'https://d3a1b16i91oc1g.cloudfront.net/full/b707f97316d5909601e4e7549eb36ac9.jpeg',
-        bio: 'User description',
-        rating: new Rating({
-          friendlyRate: 22,
-          mentorRate: 7,
-          veteranRate: 13
-        })
-      }
-    }),
-    new Game({
-      id: '6',
-      name: 'test game #6 LFP 1 players',
-      description: `
-        Description...
-      `,
-      startDate: moment('25-01-2019', 'DD-MM-YYYY'),
-      finishDate: moment('21-02-2019', 'DD-MM-YYYY'),
-      location: 'Warszawa',
-      user: {
-        id: '2',
-        name: 'test #2',
-        avatar: 'https://d3a1b16i91oc1g.cloudfront.net/full/b707f97316d5909601e4e7549eb36ac9.jpeg',
-        bio: 'User description',
-        rating: new Rating({
-          friendlyRate: 22,
-          mentorRate: 7,
-          veteranRate: 13
-        })
+        name: 'test',
+        avatar: 'https://d3a1b16i91oc1g.cloudfront.net/full/b707f97316d5909601e4e7549eb36ac9.jpeg'
       }
     })
   ];
