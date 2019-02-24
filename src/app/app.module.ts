@@ -34,6 +34,7 @@ export function HttpLoaderFactory(httpClient: HttpClient): any {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    SharedModule,
     HttpClientModule,
     TranslateModule.forRoot({
       useDefaultLang: true,
@@ -43,7 +44,6 @@ export function HttpLoaderFactory(httpClient: HttpClient): any {
         deps: [HttpClient]
       }
     }),
-    SharedModule,
     SignModule,
     SettingsModule,
     GamesModule,

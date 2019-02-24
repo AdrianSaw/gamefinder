@@ -21,8 +21,8 @@ export class GamesService {
         Mauris egestas risus tortor, et maximus mauris eleifend et. Curabitur pulvinar, leo ac tincidun't' semper,
         enim lorem fermentum augue, ut imperdiet augue sapien ut risus. Mauris imperdiet iaculis tincidun't'.
       `,
-      startDate: moment('25-01-2019', 'DD-MM-YYYY'),
-      finishDate: moment('21-02-2019', 'DD-MM-YYYY'),
+      startDate: new Date('2019-03-15'),
+      finishDate: new Date('2019-07-23'),
       location: 'Warszawa',
       user: {
         id: '1',
@@ -36,8 +36,8 @@ export class GamesService {
       description: `
         Description...
       `,
-      startDate: moment('25-01-2019', 'DD-MM-YYYY'),
-      finishDate: moment('21-02-2019', 'DD-MM-YYYY'),
+      startDate: new Date('2019-03-15'),
+      finishDate: new Date('2019-05-22'),
       location: 'Warszawa',
       user: {
         id: '1',
@@ -51,8 +51,8 @@ export class GamesService {
       description: `
         Description...
       `,
-      startDate: moment('25-01-2019', 'DD-MM-YYYY'),
-      finishDate: moment('21-02-2019', 'DD-MM-YYYY'),
+      startDate: new Date('2019-03-15'),
+      finishDate: new Date('2019-05-22'),
       location: 'Warszawa',
       user: {
         id: '2',

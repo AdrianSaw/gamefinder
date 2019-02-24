@@ -18,7 +18,7 @@
                 <p class="description">{{ game.description }}</p>
                 <div class="details">
                   <div class="left">
-                    <p><b>Kiedy:</b> {{ formatDate(game.finish_date) }}</p>
+                    <p><b>Kiedy: </b>{{ (game.finishDate | gameDate) }}</p>
                     <p class="location"><b>Miejsce:</b> {{ game.location }}</p>
                   </div>
                   <div class="right">

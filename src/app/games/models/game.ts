@@ -5,8 +5,8 @@ export class Game {
   name: string;
   description: string;
   location: string;
-  startDate: moment.Moment;
-  finishDate: moment.Moment;
+  startDate: Date;
+  finishDate: Date;
   user: UserPreview;
 
   constructor(game: Game) {

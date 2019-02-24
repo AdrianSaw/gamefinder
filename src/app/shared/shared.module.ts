@@ -11,11 +11,15 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { CapitalizePipe } from './pipes/capitalize/capitalize.pipe';
 import { LazyLoadDirective } from './directives/lazyload.directive';
+import { GameDatePipe } from './pipes/game-date/game-date.pipe';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
     CapitalizePipe,
-    LazyLoadDirective
+    GameDatePipe,
+    LazyLoadDirective,
+    HighlightDirective
   ],
   imports: [
     CommonModule,
@@ -35,6 +39,8 @@ import { LazyLoadDirective } from './directives/lazyload.directive';
   ],
   exports: [
     CapitalizePipe,
+    HighlightDirective,
+    GameDatePipe,
     ToastrModule,
     ModalModule,
     BsDropdownModule,

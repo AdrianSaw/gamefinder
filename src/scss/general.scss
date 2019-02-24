@@ -14,3 +14,15 @@ body {
 .black-overlay {
   position: fixed !important;
 }
+
+.light {
+  cursor: pointer;
+  border: 2px solid #ccc !important;
+  box-shadow: 1px 2px 4px 1px #ccc !important;
+}
+
+.dark {
+  cursor: pointer;
+  border: 2px solid #333 !important;
+  box-shadow: 1px 2px 4px 1px #333 !important;
+}

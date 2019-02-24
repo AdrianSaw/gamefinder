@@ -31,7 +31,4 @@ export class GamesListComponent implements OnInit {
     }
   }
 
-  formatDate(date: moment.Moment): string {
-    return moment(date).format('DD-MM-YYYY');
-  }
 }
