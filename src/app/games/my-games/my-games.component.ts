@@ -5,6 +5,7 @@ import * as _ from 'lodash';
 import * as moment from 'moment';
 import { GamesService } from '../games.service';
 import { Game } from '../models/game';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-my-games',
@@ -13,31 +14,54 @@ import { Game } from '../models/game';
 })
 export class MyGamesComponent implements OnInit {
   selectedDates: CalendarDate[] = null;
-  games: Game[];
+  games: Game[] = [];
+  activeGames: Game[] = [];
 
   constructor(
-    private gameService: GamesService
+    private gameService: GamesService,
+    private spinnerSerive: NgxSpinnerService
   ) { }
 
   ngOnInit() {
-    this.gameService.getUserGames().subscribe(games => this.games = games);
-    const calendarDates = [];
-    for (let game of this.games) {
-      for (let date of game.gameDates) {
-        calendarDates.push(date);
+    this.gameService.getUserGames().subscribe(games => {
+      this.games = games;
+      const calendarDates = [];
+      for (let game of this.games) {
+        for (let date of game.gameDates) {
+          calendarDates.push(date);
+        }
       }
-    }
-    const calendarCount = _.countBy(calendarDates);
-    const calendarDatesWithCount = Object.keys(calendarCount).map(date => {
-      return {
-        mDate: moment(new Date(date)),
-        events: calendarCount[date]
-      }
+      const calendarCount = _.countBy(calendarDates);
+      const calendarDatesWithCount = Object.keys(calendarCount).map(date => {
+        return {
+          mDate: moment(new Date(date)),
+          events: calendarCount[date]
+        }
+      });
+      this.selectedDates = calendarDatesWithCount;
+      this.getActiveGamesForCurrentDate(moment(new Date()));
     });
-    this.selectedDates = calendarDatesWithCount;
   }
 
   onSelectDate(evt) {
-    console.log(evt);
+    this.getActiveGamesForCurrentDate(evt.mDate);
+  }
+
+  getActiveGamesForCurrentDate(mDate) {
+    this.spinnerSerive.show();
+    const activeGames = [];
+    for (let game of this.games) {
+      for (let date of game.gameDates) {
+        if (moment(date).isSame(mDate, 'day')) {
+          const activeGame = {...game};
+          activeGame.gameDates = [date];
+          activeGames.push(activeGame);
+        }
+      }
+    }
+    setTimeout(() => {
+      this.activeGames = [...activeGames];
+      this.spinnerSerive.hide();
+    }, 1000);
   }
 }

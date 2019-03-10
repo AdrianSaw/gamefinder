@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-import * as moment from 'moment';
-
-import { Game, CalendarEvent } from './models/game';
+import { Game } from './models/game';
 
 @Injectable({
   providedIn: 'root'
@@ -114,7 +112,9 @@ export class GamesService {
         Description...
       `,
       gameDates: [
-        new Date('2019-04-17 16:30')
+        new Date('2019-03-10 23:50'),
+        new Date('2019-03-12 22:50')
+
       ],
       location: 'Warszawa',
       user: {
@@ -140,7 +140,4 @@ export class GamesService {
     return of(this.userGames);
   }
 
-  getCalendarDates(): Observable<Game[]> {
-    return of(this.userGames);
-  }
 }

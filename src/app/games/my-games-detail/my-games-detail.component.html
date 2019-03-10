@@ -1,3 +1,10 @@
-<p>
-  my-games-detail works!
+<div *ngIf="activeGames.length > 0" class="games-container">
+  <div class="game" *ngFor="let game of activeGames">
+    <h5 class="title">{{ game.name }} <span>{{ setTime(game.gameDates[0]) }}</span></h5>
+    <p class="description"> {{ game.description }}</p>
+  </div>
+</div>
+
+<p *ngIf="activeGames.length === 0">
+  No games found for current date
 </p>
