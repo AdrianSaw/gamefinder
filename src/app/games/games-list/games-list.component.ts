@@ -12,7 +12,7 @@ import { GamesService } from '../games.service';
 })
 export class GamesListComponent implements OnInit {
   games: Game[];
-  gamesList: Game[];
+  searchResults: Game[];
   constructor(
     private gamesService: GamesService
   ) { }
@@ -20,15 +20,19 @@ export class GamesListComponent implements OnInit {
   ngOnInit() {
     this.gamesService.getGamesList().subscribe(games => {
       this.games = games;
-      this.gamesList = games;
+      this.searchResults = games;
     });
   }
 
   filteredGames(searchResult: Game[]) {
-    this.gamesList = this.games;
+    this.searchResults = this.games;
     if (searchResult) {
-      this.gamesList = searchResult;
+      this.searchResults = searchResult;
     }
   }
-
+  getDate(date) {
+    const currentTimestamp = moment().unix();
+    const closestGameDate = date.sort().find( date => moment(date).unix() >= currentTimestamp );
+    return closestGameDate;
+  }
 }

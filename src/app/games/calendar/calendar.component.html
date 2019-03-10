@@ -1,0 +1,29 @@
+<p>
+  calendar works!
+</p>
+
+<div class="calendar-container">
+  <div class="calendar-header">
+    <button (click)="prevMonth()" class="ctrl-btn"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+    <div class="current-month">{{ getCurrentMonth() }}</div>
+    <button (click)="nextMonth()" class="ctrl-btn"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+  </div>
+  <div class="day-names">
+    <div *ngFor="let name of dayNames" class="day-name">
+      {{ name }}
+    </div>
+  </div>
+  <div class="weeks">
+    <div *ngFor="let week of weeks" class="week">
+      <ng-container *ngFor="let day of week">
+        <div
+        class="week-day"
+        (click)="selectDate(day)"
+        [ngClass]="{ today: day.today, selected: day.selected, 'active-month': day.activeMonth }">
+          <span>{{ day.mDate.date() }}</span>
+          <span class="event-count" *ngIf="day.events">{{ day.events }}</span>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

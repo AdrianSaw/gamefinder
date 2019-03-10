@@ -1,0 +1,86 @@
+.calendar-container {
+  width: 600px;
+  margin: 0 auto;
+  border: 2px solid black;
+
+  .calendar-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .ctrl-btn {
+    background-color: #fff;
+    outline: none;
+    border: none;
+    color: #000;
+    margin: 0;
+    padding: 0 2.5rem;
+    cursor: pointer;
+  }
+
+  .current-month {
+    font-weight: bold;
+    font-size: 1.25rem;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 0;
+  }
+
+  .day-names {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .weeks {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .week {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .day-name {
+    font-weight: bold;
+  }
+
+  .week-day,
+  .day-name {
+    text-align: center;
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .week-day {
+    position: relative;
+    cursor: pointer;
+    color: #ccc;
+    &.active-month {
+      color: #333;
+    }
+    .event-count {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      color: #fff;
+      background-color: rebeccapurple;
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+  .today {
+    border: 2px solid #1313b1;
+    box-sizing: border-box;
+  }
+  .selected {
+    border: 2px solid #c51414;
+    box-sizing: border-box;
+  }
+}

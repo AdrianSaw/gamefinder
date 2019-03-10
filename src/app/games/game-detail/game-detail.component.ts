@@ -17,6 +17,7 @@ import { Game } from '../models/game';
 export class GameDetailComponent implements OnInit {
   gameId: string;
   gameDetail: Game;
+  showAll = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,8 +33,24 @@ export class GameDetailComponent implements OnInit {
     });
   }
 
-  formatDate(date: moment.Moment): string {
-    return moment(date).format('DD-MM-YYYY');
+  getGameDates(date: Array<Date>, showAll): String[] {
+    const currentTimestamp = moment().unix();
+    const gameDates = date.sort()
+    .filter(date => {
+      const dateTimestamp = moment(date).unix();
+      if (dateTimestamp >= currentTimestamp) {
+        return date;
+      }
+    })
+    .map(date => {
+      return moment(date).format('DD-MM-YYYY HH:mm');
+    });
+
+    if (gameDates.length > 5 && !showAll) {
+      return gameDates.splice(0, 5);
+    } else {
+      return gameDates;
+    }
   }
 
   submitPropose() {

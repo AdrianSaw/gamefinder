@@ -8,6 +8,18 @@
     margin: 0 2rem 3rem;
   }
 
+  .game-dates {
+    b {
+      margin-bottom: 0.5rem;
+    }
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    .game-date {
+      margin: 0.25rem 0;
+    }
+  }
+
   .back {
     position: absolute;
     display: flex;
@@ -64,7 +76,18 @@
     p {
       margin-bottom: 0.5rem;
     }
+  }
 
+  .show {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 0.5rem;
+    max-width: 80px;
+    text-align: left;
+    letter-spacing: 1px;
   }
 }
 

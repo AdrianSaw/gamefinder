@@ -9,7 +9,11 @@
           {{ gameDetail.description }}
         </div>
         <div class="game-details">
-          <p><b>Kiedy:</b> {{ formatDate(gameDetail.finish_date) }}</p>
+          <div class="game-dates">
+            <b>Kiedy:</b>
+            <span *ngFor="let date of getGameDates(gameDetail.gameDates, showAll)" class="game-date">{{ date }}</span>
+            <button (click)="showAll = !showAll" class="show">{{ showAll? 'Mniej' : 'Więcej' }}</button>
+          </div>
           <p class="location"><b>Miejsce:</b> {{ gameDetail.location }}</p>
         </div>
       </div>

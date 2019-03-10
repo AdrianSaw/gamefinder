@@ -9,6 +9,9 @@ import { GameDetailComponent } from './game-detail/game-detail.component';
 import { GameAddComponent } from './game-add/game-add.component';
 import { GamesSearchComponent } from './games-search/games-search.component';
 import { ProfilePreviewComponent } from './profile-preview/profile-preview.component';
+import { MyGamesComponent } from './my-games/my-games.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { MyGamesDetailComponent } from './my-games-detail/my-games-detail.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { ProfilePreviewComponent } from './profile-preview/profile-preview.compo
     GameDetailComponent,
     GameAddComponent,
     GamesSearchComponent,
-    ProfilePreviewComponent
+    ProfilePreviewComponent,
+    MyGamesComponent,
+    CalendarComponent,
+    MyGamesDetailComponent
   ],
   imports: [
     CommonModule,

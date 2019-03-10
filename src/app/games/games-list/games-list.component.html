@@ -6,9 +6,9 @@
           <app-games-search [games]="games" (filteredGames)="filteredGames($event)"></app-games-search>
         </div>
         <hr class="divider">
-        <ng-container *ngIf="gamesList.length > 0; else empty">
+        <ng-container *ngIf="searchResults.length > 0; else empty">
         <div class="games-list">
-          <div class="game" *ngFor="let game of gamesList;">
+          <div class="game" *ngFor="let game of searchResults;">
             <div class="game-header">
               <h4>
                 <a routerLink="/game/{{ game.id }}">{{ game.name }}</a></h4>
@@ -18,7 +18,7 @@
                 <p class="description">{{ game.description }}</p>
                 <div class="details">
                   <div class="left">
-                    <p><b>Kiedy: </b>{{ (game.finishDate | gameDate) }}</p>
+                    <p><b>Kiedy: </b>{{ getDate(game.gameDates) | gameDate }}</p>
                     <p class="location"><b>Miejsce:</b> {{ game.location }}</p>
                   </div>
                   <div class="right">

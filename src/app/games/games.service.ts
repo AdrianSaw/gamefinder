@@ -3,14 +3,14 @@ import { Observable, of } from 'rxjs';
 
 import * as moment from 'moment';
 
-import { Game } from './models/game';
+import { Game, CalendarEvent } from './models/game';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GamesService {
-  games = [
-    new Game({
+  games: Game[] = [
+    {
       id: '1',
       name: 'test game #1 LFP 3 players',
       description: `
@@ -21,47 +21,109 @@ export class GamesService {
         Mauris egestas risus tortor, et maximus mauris eleifend et. Curabitur pulvinar, leo ac tincidun't' semper,
         enim lorem fermentum augue, ut imperdiet augue sapien ut risus. Mauris imperdiet iaculis tincidun't'.
       `,
-      startDate: new Date('2019-03-15'),
-      finishDate: new Date('2019-07-23'),
+      gameDates: [
+        new Date('2019-05-15 15:30'),
+        new Date('2019-04-15 15:30'),
+        new Date('2019-05-18 16:30'),
+        new Date('2019-05-22 16:30'),
+        new Date('2019-05-30 17:30'),
+        new Date('2019-05-17 16:30'),
+        new Date('2019-06-15 16:30'),
+        new Date('2019-10-15 16:30'),
+        new Date('2019-03-15 16:30')
+      ],
       location: 'Warszawa',
       user: {
         id: '1',
         name: 'test',
         avatar: 'https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg'
       }
-    }),
-    new Game({
+    },
+    {
       id: '2',
       name: 'test game #2 LFP 1 players',
       description: `
         Description...
       `,
-      startDate: new Date('2019-03-15'),
-      finishDate: new Date('2019-05-22'),
+      gameDates: [
+        new Date('2019-04-15 19:30'),
+        new Date('2019-03-15 19:30')
+      ],
       location: 'Warszawa',
       user: {
         id: '1',
         name: 'test',
         avatar: 'https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg'
       }
-    }),
-    new Game({
+    },
+    {
       id: '3',
       name: 'test game #33 LFP 1 players',
       description: `
         Description...
       `,
-      startDate: new Date('2019-03-15'),
-      finishDate: new Date('2019-05-22'),
+      gameDates: [
+        new Date('2019-06-15 17:30')
+      ],
       location: 'Warszawa',
       user: {
         id: '2',
         name: 'test',
         avatar: 'https://d3a1b16i91oc1g.cloudfront.net/full/b707f97316d5909601e4e7549eb36ac9.jpeg'
       }
-    })
+    }
   ];
 
+  userGames: Game[] = [
+    {
+      id: '2',
+      name: 'test game #2 LFP 1 players',
+      description: `
+        Description...
+      `,
+      gameDates: [
+        new Date('2019-03-15 16:30')
+      ],
+      location: 'Warszawa',
+      user: {
+        id: '1',
+        name: 'test',
+        avatar: 'https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg'
+      }
+    },
+    {
+      id: '1',
+      name: 'test game #2 LFP 1 players',
+      description: `
+        Description...
+      `,
+      gameDates: [
+        new Date('2019-03-15 16:30')
+      ],
+      location: 'Warszawa',
+      user: {
+        id: '1',
+        name: 'test',
+        avatar: 'https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg'
+      }
+    },
+    {
+      id: '3',
+      name: 'test game #2 LFP 1 players',
+      description: `
+        Description...
+      `,
+      gameDates: [
+        new Date('2019-04-17 16:30')
+      ],
+      location: 'Warszawa',
+      user: {
+        id: '1',
+        name: 'test',
+        avatar: 'https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg'
+      }
+    }
+  ]
   constructor() {
   }
 
@@ -72,5 +134,13 @@ export class GamesService {
   getGameById(id: string): Observable<Game> {
     const gameDetail = this.games.find(game => game.id === id);
     return of(gameDetail);
+  }
+
+  getUserGames(): Observable<Game[]> {
+    return of(this.userGames);
+  }
+
+  getCalendarDates(): Observable<Game[]> {
+    return of(this.userGames);
   }
 }
