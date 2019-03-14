@@ -1,7 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SharedModule } from 'src/app/shared/shared.module';
-import * as moment from 'moment';
 
 import { GamesSearchComponent } from './games-search.component';
 import { Game } from '../models/game';
