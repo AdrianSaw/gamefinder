@@ -16,6 +16,7 @@ describe('MyGamesDetailComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MyGamesDetailComponent);
     component = fixture.componentInstance;
+    component.activeGames = [];
     fixture.detectChanges();
   });
 

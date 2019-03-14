@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import * as moment from 'moment';
 import * as _ from 'lodash';
+
 import { CalendarDate } from './calendar.interface';
 
 @Component({
@@ -84,9 +85,9 @@ export class CalendarComponent implements OnInit {
 
   // fill calendar with dates
   fillDates(currentMoment: moment.Moment): any {
-  const firstOfMonth = moment(currentMoment).startOf('month').day();
-  const firstDayOfGrid = moment(currentMoment).startOf('month').subtract(firstOfMonth, 'days');
-  const start = firstDayOfGrid.date();
+    const firstOfMonth = moment(currentMoment).startOf('month').day();
+    const firstDayOfGrid = moment(currentMoment).startOf('month').subtract(firstOfMonth, 'days');
+    const start = firstDayOfGrid.date();
     return _.range(start, start + 42)
       .map((date: number): any => {
         const d = moment(firstDayOfGrid).date(date);
@@ -98,6 +99,6 @@ export class CalendarComponent implements OnInit {
           events: this.countEvents(d)
         };
       });
-    }
+  }
 
 }

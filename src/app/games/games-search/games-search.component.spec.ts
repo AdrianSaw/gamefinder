@@ -25,19 +25,24 @@ describe('GamesSearchComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(GamesSearchComponent);
     component = fixture.componentInstance;
-    const games = [new Game({
-      id: '2',
-      name: 'test',
-      description: 'test',
-      startDate: moment('25-01-2019', 'DD-MM-YYYY'),
-      finishDate: moment('21-02-2019', 'DD-MM-YYYY'),
-      location: 'test',
-      user: {
-        id: '1',
-        name: 'test',
-        avatar: 'img'
+    const games: Game[] = [
+      {
+        id: '2',
+        name: 'test game #2 LFP 1 players',
+        description: `
+          Description...
+        `,
+        gameDates: [
+          new Date('2019-03-15 16:30')
+        ],
+        location: 'Warszawa',
+        user: {
+          id: '1',
+          name: 'test',
+          avatar: 'https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg'
+        }
       }
-    })];
+    ];
     component.games = games;
     fixture.detectChanges();
   });

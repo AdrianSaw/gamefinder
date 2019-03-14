@@ -123,7 +123,8 @@ export class GamesService {
         avatar: 'https://dungeonblarg.files.wordpress.com/2011/04/jhonen2.jpg'
       }
     }
-  ]
+  ];
+
   constructor() {
   }
 
