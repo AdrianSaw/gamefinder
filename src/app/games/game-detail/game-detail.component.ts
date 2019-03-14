@@ -33,24 +33,24 @@ export class GameDetailComponent implements OnInit {
     });
   }
 
-  getGameDates(date: Array<Date>, showAll): String[] {
+  getGameDates(date: Array<Date>, showAll: boolean): String[] {
     const currentTimestamp = moment().unix();
     const gameDates = date.sort()
-    .filter(date => {
-      const dateTimestamp = moment(date).unix();
-      if (dateTimestamp >= currentTimestamp) {
-        return date;
-      }
-    })
-    .map(date => {
-      return moment(date).format('DD-MM-YYYY HH:mm');
-    });
+      .filter(gameDate => {
+        const dateTimestamp = moment(gameDate).unix();
+        if (dateTimestamp >= currentTimestamp) {
+          return gameDate;
+        }
+      })
+      .map(gameDate => {
+        return moment(gameDate).format('DD-MM-YYYY HH:mm');
+      });
 
     if (gameDates.length > 5 && !showAll) {
       return gameDates.splice(0, 5);
-    } else {
-      return gameDates;
     }
+
+    return gameDates;
   }
 
   submitPropose() {

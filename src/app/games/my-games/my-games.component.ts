@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { CalendarDate } from '../calendar/calendar.interface';
 
 import * as _ from 'lodash';
 import * as moment from 'moment';
-import { GamesService } from '../games.service';
-import { Game } from '../models/game';
 import { NgxSpinnerService } from 'ngx-spinner';
+
+import { GamesService } from '../games.service';
+import { CalendarDate } from '../calendar/calendar.interface';
+import { Game } from '../models/game';
 
 @Component({
   selector: 'app-my-games',
@@ -26,8 +27,8 @@ export class MyGamesComponent implements OnInit {
     this.gameService.getUserGames().subscribe(games => {
       this.games = games;
       const calendarDates = [];
-      for (let game of this.games) {
-        for (let date of game.gameDates) {
+      for (const game of this.games) {
+        for (const date of game.gameDates) {
           calendarDates.push(date);
         }
       }
@@ -36,24 +37,24 @@ export class MyGamesComponent implements OnInit {
         return {
           mDate: moment(new Date(date)),
           events: calendarCount[date]
-        }
+        };
       });
       this.selectedDates = calendarDatesWithCount;
       this.getActiveGamesForCurrentDate(moment(new Date()));
     });
   }
 
-  onSelectDate(evt) {
+  onSelectDate(evt: any) {
     this.getActiveGamesForCurrentDate(evt.mDate);
   }
 
-  getActiveGamesForCurrentDate(mDate) {
+  getActiveGamesForCurrentDate(mDate: moment.Moment) {
     this.spinnerSerive.show();
     const activeGames = [];
-    for (let game of this.games) {
-      for (let date of game.gameDates) {
+    for (const game of this.games) {
+      for (const date of game.gameDates) {
         if (moment(date).isSame(mDate, 'day')) {
-          const activeGame = {...game};
+          const activeGame = { ...game };
           activeGame.gameDates = [date];
           activeGames.push(activeGame);
         }

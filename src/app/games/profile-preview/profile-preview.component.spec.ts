@@ -30,14 +30,13 @@ describe('ProfilePreviewComponent', () => {
   });
 
   it('User should be undefined', () => {
-    expect(component.user).toBe(undefined);
+    expect(component.user).toBeFalsy();
   });
 
   it('User should have data', () => {
     gameService = TestBed.get(GamesService);
     gameService.getGameById('1').subscribe(data => {
-      component.user = data.user;
-      expect(component.user).toBeTruthy();
+      expect(data.user).toBeTruthy();
     });
   });
 });

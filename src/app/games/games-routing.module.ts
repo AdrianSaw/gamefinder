@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'games', component: GamesListComponent },
   { path: 'my-games', component: MyGamesComponent },
   { path: 'game/:id', component: GameDetailComponent },
-  { path: 'profile/:id', component: ProfilePreviewComponent}
+  { path: 'profile/:id', component: ProfilePreviewComponent }
 ];
 
 @NgModule({

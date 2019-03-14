@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
-import { Game } from '../models/game';
+
 import * as moment from 'moment';
 
+import { Game } from '../models/game';
 
 @Component({
   selector: 'app-my-games-detail',

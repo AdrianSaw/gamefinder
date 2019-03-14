@@ -30,9 +30,9 @@ export class GamesListComponent implements OnInit {
       this.searchResults = searchResult;
     }
   }
-  getDate(date) {
+  getDate(date: Array<string>) {
     const currentTimestamp = moment().unix();
-    const closestGameDate = date.sort().find( date => moment(date).unix() >= currentTimestamp );
+    const closestGameDate = date.sort().find(gameData => moment(gameData).unix() >= currentTimestamp );
     return closestGameDate;
   }
 }
