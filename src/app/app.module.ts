@@ -9,7 +9,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-import { SignModule } from './sign/sign.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { LandingComponent } from './core/landing/landing.component';
@@ -17,8 +16,6 @@ import { NavComponent } from './core/nav/nav.component';
 import { FaqComponent } from './core/faq/faq.component';
 
 import { environment } from '../environments/environment';
-import { SettingsModule } from './settings/settings.module';
-import { GamesModule } from './games/games.module';
 
 export function HttpLoaderFactory(httpClient: HttpClient): any {
   return new TranslateHttpLoader(httpClient);
@@ -44,9 +41,6 @@ export function HttpLoaderFactory(httpClient: HttpClient): any {
         deps: [HttpClient]
       }
     }),
-    SignModule,
-    SettingsModule,
-    GamesModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],

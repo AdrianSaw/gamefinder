@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Game } from '../models/game';
+import { FormControl } from '@angular/forms';
+
+import { debounceTime, distinctUntilChanged, flatMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-games-search',
@@ -12,20 +15,22 @@ export class GamesSearchComponent implements OnInit {
   @Output() filteredGames = new EventEmitter<Game[]>();
   gamesNames: string[];
   search: string;
+  term = new FormControl();
   constructor() { }
 
   ngOnInit() {
     this.gamesNames = this.games.map(game => game.name);
+    this.onSearch();
   }
 
-  onSearch(evt: string): void {
-    const games = [...this.games];
-    let results = [];
-    if (evt.length > 3) {
-      results = games.filter(game => game.name.trim().toLowerCase().match(evt.trim().toLowerCase()));
-      this.filteredGames.emit(results);
-    } else {
-      this.filteredGames.emit(this.games);
-    }
+  onSearch(): void {
+    this.term.valueChanges.pipe(
+      debounceTime(400),
+      distinctUntilChanged()
+    )
+    .subscribe(term => {
+      const games = this.games.filter(game => game.name.trim().toLowerCase().match(term.trim().toLowerCase()));
+      this.filteredGames.emit(games);
+    });
   }
 }
