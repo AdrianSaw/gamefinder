@@ -7,14 +7,17 @@ import { ProfilePreviewComponent } from './profile-preview/profile-preview.compo
 import { MyGamesComponent } from './my-games/my-games.component';
 
 const routes: Routes = [
-  { path: 'games', component: GamesListComponent },
+  {
+    path: '',
+    component: GamesListComponent
+  },
   { path: 'my-games', component: MyGamesComponent },
   { path: 'game/:id', component: GameDetailComponent },
   { path: 'profile/:id', component: ProfilePreviewComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 
