@@ -5,13 +5,19 @@
       <form [formGroup]="signupForm" (ngSubmit)="onSignUp()">
         <div class="form-group">
           <label for="field_name">Nazwa Użytkownika</label>
-          <input type="text" class="form-control" id="field_name" formControlName="name" placeholder="Wprowadz nazwe użytkownika">
+          <input type="text" class="form-control" id="field_name" formControlName="username" placeholder="Wprowadz nazwe użytkownika">
           <span class="form-err">Wprowadz nazwe użytkownika</span>
         </div>
         <div class="form-group">
           <label for="field_email">Email</label>
           <input type="email" class="form-control" id="field_email" formControlName="email" placeholder="Wprowadz email">
-          <span class="form-err">Wprowadz poprawny email</span>
+          <span
+            class="form-err"
+            *ngIf="signupForm.get('email').errors &&
+            signupForm.get('email').dirty &&
+            signupForm.get('email').errors.validEmail">
+            Wprowadz poprawny email
+          </span>
         </div>
         <div class="form-group">
           <label for="field_password">Hasło</label>
@@ -35,7 +41,7 @@
         </div>
       </form>
       <div class="form-group text-center">
-        <a [routerLink]="'/signin'" class="btn-link">Posiadasz konto? Zaloguj sie</a>
+        <a [routerLink]="'/sign/signin'" class="btn-link">Posiadasz konto? Zaloguj sie</a>
       </div>
     </div>
   </div>

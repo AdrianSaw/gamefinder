@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthenticationService } from 'src/app/core/auth/auth.service';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { StorageService } from 'src/app/core/storage/storage.service';
-import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import * as fromApp from '../../ngrx/app.reducers';
+import * as AuthActions from '../../core/auth/ngrx/auth.actions';
 
 @Component({
   selector: 'app-signin',
@@ -14,11 +13,8 @@ export class SigninComponent implements OnInit {
   signinForm: FormGroup;
 
   constructor(
-    private authService: AuthenticationService,
-    private spinner: NgxSpinnerService,
-    private storageService: StorageService,
     private fb: FormBuilder,
-    private router: Router
+    private store: Store<fromApp.AppState>
   ) { }
 
   ngOnInit() {
@@ -33,13 +29,6 @@ export class SigninComponent implements OnInit {
   }
 
   onSignIn(): void {
-    this.spinner.show();
-    setTimeout(() => {
-      this.authService.isAuthenticated$.next(true);
-      this.authService.isAuthenticated$.subscribe(data => console.log(data));
-      this.storageService.setItem('auth', true);
-      this.router.navigateByUrl('profile');
-      this.spinner.hide();
-    }, 2000);
+    this.store.dispatch(new AuthActions.TrySignin(this.signinForm.value));
   }
 }

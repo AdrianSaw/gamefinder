@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+
+import { Store } from '@ngrx/store';
+import * as fromAuth from './core/auth/ngrx/auth.reducers';
+import * as AuthActions from './core/auth/ngrx/auth.actions';
+import * as fromApp from './ngrx/app.reducers';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +14,10 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent implements OnInit {
   language: string;
+  authState: Observable<fromAuth.State>;
   constructor(
-    public translate: TranslateService
+    public translate: TranslateService,
+    private store: Store<fromApp.AppState>
   ) {
     translate.addLangs(['pl', 'en']);
     translate.setDefaultLang('pl');
@@ -18,7 +26,10 @@ export class AppComponent implements OnInit {
     translate.use(this.language);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.authState = this.store.select('auth');
+    this.store.dispatch(new AuthActions.IsAuth());
+  }
 
   selectLangugage(lang: string): void {
     this.translate.use(lang);

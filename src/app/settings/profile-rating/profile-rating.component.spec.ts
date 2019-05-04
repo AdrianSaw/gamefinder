@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Rating } from 'src/app/core/models/rating';
+import { Rating } from 'src/app/shared/models/rating';
 
 import { ProfileRatingComponent } from './profile-rating.component';
 

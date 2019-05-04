@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { AuthenticationService } from 'src/app/core/auth/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
-import { StorageService } from 'src/app/core/storage/storage.service';
 
 import { PasswordValidation } from 'src/app/shared/validator/password.validation';
+import { ValidateEmail } from '../validator/email.validator';
+
+import { Store } from '@ngrx/store';
+import * as fromApp from '../../ngrx/app.reducers';
+import * as AuthActions from '../../core/auth/ngrx/auth.actions';
 
 @Component({
   selector: 'app-signup',
@@ -17,12 +20,8 @@ import { PasswordValidation } from 'src/app/shared/validator/password.validation
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   constructor(
-    private authService: AuthenticationService,
-    private spinner: NgxSpinnerService,
-    private storageService: StorageService,
-    private toastr: ToastrService,
-    private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private store: Store<fromApp.AppState>
   ) { }
 
   ngOnInit() {
@@ -31,8 +30,8 @@ export class SignupComponent implements OnInit {
 
   createForm(): void {
     this.signupForm = this.fb.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', Validators.required],
+      email: ['', [Validators.required, ValidateEmail]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirm_password: ['', [Validators.required, Validators.minLength(6)]],
       rights: [false, Validators.requiredTrue]
@@ -42,12 +41,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSignUp(): void {
-    console.log(this.signupForm);
-    this.spinner.show();
-    setTimeout(() => {
-      this.toastr.success('Sprawdz swoją poczte email w celu dalszej aktywacji konta');
-      this.router.navigateByUrl('signin');
-      this.spinner.hide();
-    }, 2000);
+    this.store.dispatch(new AuthActions.TrySignup(this.signupForm.value));
   }
+
 }

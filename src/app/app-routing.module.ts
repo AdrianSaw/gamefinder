@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './core/components/home/home.component';
+import { AuthGuard } from './core/guards/auth.guard';
+import { NotFoundComponent } from './core/components/not-found/not-found.component';
+import { FaqComponent } from './faq/faq.component';
 
-import { NotFoundComponent } from './core/not-found/not-found.component';
-import { LandingComponent } from './core/landing/landing.component';
-import { FaqComponent } from './core/faq/faq.component';
 
 const routes: Routes = [
-  { path: '', component: LandingComponent },
+  { path: '', component: HomeComponent },
   {
     path: 'sign',
     loadChildren: './sign/sign.module#SignModule'
@@ -17,9 +18,12 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    loadChildren: './settings/settings.module#SettingsModule'
+    loadChildren: './settings/settings.module#SettingsModule',
+    canActivate: [AuthGuard]
   },
-  { path: 'faq', component: FaqComponent },
+  { path: 'faq',
+    loadChildren: './faq/faq.module#FaqModule'
+  },
   { path: '404', component: NotFoundComponent },
   { path: '**', redirectTo: '404', pathMatch: 'full' }
 ];

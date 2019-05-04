@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Rating } from 'src/app/core/models/rating';
+import { Rating } from 'src/app/shared/models/rating';
 
 @Component({
   selector: 'app-profile-rating',

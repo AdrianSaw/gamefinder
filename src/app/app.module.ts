@@ -6,16 +6,25 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
-import { NotFoundComponent } from './core/not-found/not-found.component';
-import { LandingComponent } from './core/landing/landing.component';
-import { NavComponent } from './core/nav/nav.component';
-import { FaqComponent } from './core/faq/faq.component';
 
 import { environment } from '../environments/environment';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './ngrx/app.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { NavComponent } from './core/components/nav/nav.component';
+import { HomeComponent } from './core/components/home/home.component';
+import { NotFoundComponent } from './core/components/not-found/not-found.component';
+
+import { IsAuthEffect } from './core/auth/ngrx/effects/isAuth.effect';
+import { SigninEffect } from './core/auth/ngrx/effects/signin.effect';
+import { LogoutEffect } from './core/auth/ngrx/effects/logout.effect';
+import { SignupEffect } from './core/auth/ngrx/effects/signup.effect';
 
 export function HttpLoaderFactory(httpClient: HttpClient): any {
   return new TranslateHttpLoader(httpClient);
@@ -24,9 +33,8 @@ export function HttpLoaderFactory(httpClient: HttpClient): any {
   declarations: [
     AppComponent,
     NotFoundComponent,
-    LandingComponent,
-    NavComponent,
-    FaqComponent
+    HomeComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +50,15 @@ export function HttpLoaderFactory(httpClient: HttpClient): any {
       }
     }),
     AppRoutingModule,
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([
+      IsAuthEffect,
+      SigninEffect,
+      SignupEffect,
+      LogoutEffect
+    ]),
+    StoreRouterConnectingModule,
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [

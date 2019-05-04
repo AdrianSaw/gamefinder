@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 
 import { Game } from '../models/game';
-import { GamesService } from '../games.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import * as fromGameList from './ngrx/game-list.reducer';
 
 @Component({
   selector: 'app-games-list',
@@ -11,25 +13,23 @@ import { GamesService } from '../games.service';
   styleUrls: ['./games-list.component.scss']
 })
 export class GamesListComponent implements OnInit {
+  gamesListState: Observable<any>;
   games: Game[];
-  searchResults: Game[];
   constructor(
-    private gamesService: GamesService
+    private store: Store<fromGameList.FeatureState>
   ) { }
 
   ngOnInit() {
-    this.gamesService.getGamesList().subscribe(games => {
-      this.games = games;
-      this.searchResults = games;
+    this.gamesListState = this.store.select('gameList');
+    this.gamesListState.subscribe(data => {
+      this.games = data.games;
+      if (data.term) {
+        const filteredGames = this.games.filter(game => game.name.trim().toLowerCase().match(data.term.trim().toLowerCase()))
+        this.games = filteredGames;
+      }
     });
   }
 
-  filteredGames(searchResult: Game[]) {
-    this.searchResults = this.games;
-    if (searchResult) {
-      this.searchResults = searchResult;
-    }
-  }
   getDate(date: Array<string>) {
     const currentTimestamp = moment().unix();
     const closestGameDate = date.sort().find(gameData => moment(gameData).unix() >= currentTimestamp );
