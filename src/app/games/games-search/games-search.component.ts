@@ -3,7 +3,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { Game } from '../../models/game';
+import { Game } from '../models/game';
 import { Observable, of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as GameListActions from '../ngrx/game-list.actions';

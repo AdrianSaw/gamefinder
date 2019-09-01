@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
-import { SigninInterface } from '../../../shared/models/signin';
-import { SignupInterface } from '../../../shared/models/signup';
+import { SigninInterface } from '../../shared/models/signin';
+import { SignupInterface } from '../../shared/models/signup';
 
 export enum ActionsTypes {
   IS_AUTH = 'IS_AUTH',

@@ -1,7 +1,7 @@
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 import { tap } from 'rxjs/operators';
-import * as AuthActions from '../auth.actions';
+import * as AuthActions from '../actions/auth.actions';
 import { Router } from '@angular/router';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
 

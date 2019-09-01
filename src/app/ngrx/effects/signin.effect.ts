@@ -1,23 +1,22 @@
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
 import { map, switchMap, mergeMap } from 'rxjs/operators';
-import * as AuthActions from '../auth.actions';
+import * as AuthActions from '../actions/auth.actions';
 import { of } from 'rxjs';
 import { Router } from '@angular/router';
 import { StorageService } from 'src/app/core/services/storage/storage.service';
-import { SignupInterface } from '../../../../shared/models/signup';
+import { SigninInterface } from '../../shared/models/signin';
 
 @Injectable()
-export class SignupEffect {
+export class SigninEffect {
 
   @Effect()
   authSignin = this.actions$.pipe(
-    ofType(AuthActions.ActionsTypes.TRY_SIGNUP),
-    map((action: AuthActions.TrySignup) => {
+    ofType(AuthActions.ActionsTypes.TRY_SIGNIN),
+    map((action: AuthActions.TrySignin) => {
       return action.payload;
     }),
-    switchMap((authData: SignupInterface) => {
-      console.log(authData);
+    switchMap((authData: SigninInterface) => {
       return of(authData);
     }),
     switchMap(() => {

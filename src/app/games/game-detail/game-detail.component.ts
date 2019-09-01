@@ -4,8 +4,8 @@ import { Location } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 
 import * as moment from 'moment';
-import { GamesService } from '../../games.service';
-import { Game } from '../../models/game';
+import { GamesService } from '../games.service';
+import { Game } from '../models/game';
 
 
 

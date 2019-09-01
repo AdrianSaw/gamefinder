@@ -1,5 +1,5 @@
 import * as GameListActions from './game-list.actions';
-import { Game } from '../../models/game';
+import { Game } from '../models/game';
 
 export interface FeatureState {
   gameList: State
@@ -22,7 +22,7 @@ const initialState = {
       `,
       gameDates: [
         new Date('2019-05-15 15:30'),
-        new Date('2019-04-15 15:30')
+        new Date('2019-04-15 9:45')
       ],
       location: 'Warszawa',
       user: {
@@ -39,7 +39,7 @@ const initialState = {
       `,
       gameDates: [
         new Date('2019-04-15 19:30'),
-        new Date('2019-03-15 19:30')
+        new Date('2019-03-15 13:33')
       ],
       location: 'Warszawa',
       user: {

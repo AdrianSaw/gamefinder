@@ -3,7 +3,7 @@
     <div class="games-wrapper">
       <h2>Lista Gier</h2>
         <div class="search">
-          <app-games-search [games]="gamesListState"></app-games-search>
+          <app-games-search></app-games-search>
         </div>
         <hr class="divider">
         <ng-container *ngIf="games.length > 0; else empty">
@@ -11,14 +11,14 @@
           <div class="game" *ngFor="let game of games;">
             <div class="game-header">
               <h4>
-                <a routerLink="games/game/{{ game.id }}">{{ game.name }}</a></h4>
+                <a routerLink="game/{{ game.id }}">{{ game.name }}</a></h4>
             </div>
             <hr>
             <div class="game-body">
                 <p class="description">{{ game.description }}</p>
                 <div class="details">
                   <div class="left">
-                    <p><b>Kiedy: </b>{{ getDate(game.gameDates) | gameDate }}</p>
+                    <p><b>Kiedy: </b><span *ngFor="let gameDate of game.gameDates"> {{ gameDate | date: 'medium' }}</span></p>
                     <p class="location"><b>Miejsce:</b> {{ game.location }}</p>
                   </div>
                   <div class="right">
@@ -36,4 +36,4 @@
     </div>
   </div>
 </div>
-<app-game-add></app-game-add>
+<!-- <app-game-add></app-game-add> -->

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Game } from '../../models/game';
+import { Game } from '../models/game';
 
 export enum ActionsTypes {
   ADD_GAMES = 'ADD_GAMES',

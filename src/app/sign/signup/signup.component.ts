@@ -9,8 +9,8 @@ import { PasswordValidation } from 'src/app/shared/validator/password.validation
 import { ValidateEmail } from '../validator/email.validator';
 
 import { Store } from '@ngrx/store';
-import * as fromApp from '../../ngrx/app.reducers';
-import * as AuthActions from '../../core/auth/ngrx/auth.actions';
+import * as fromApp from '../../ngrx/app.reducers'
+import * as AuthActions from '../../ngrx/actions/auth.actions'
 
 @Component({
   selector: 'app-signup',

@@ -6,9 +6,9 @@ import { User } from '../../../shared/models/user';
 import { Observable } from 'rxjs';
 
 import { Store } from '@ngrx/store';
-import * as fromAuth from '../../auth/ngrx/auth.reducers';
+import * as fromAuth from '../../../ngrx/reducers/auth.reducers';
 import * as fromApp from '../../../ngrx/app.reducers';
-import * as AuthActions from '../../auth/ngrx/auth.actions';
+import * as AuthActions from '../../../ngrx/actions/auth.actions';
 
 @Component({
   selector: 'app-nav',

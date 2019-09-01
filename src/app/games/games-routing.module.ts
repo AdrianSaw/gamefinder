@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { GamesListComponent } from './games-list/games-list.component';
 import { MyGamesComponent } from './my-games/my-games.component';
-import { GameDetailComponent } from './games-list/game-detail/game-detail.component';
+import { GameDetailComponent } from './game-detail/game-detail.component';
 import { AuthGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [

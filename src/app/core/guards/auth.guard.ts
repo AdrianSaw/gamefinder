@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../ngrx/app.reducers';
-import * as fromAuth from '../auth/ngrx/auth.reducers';
+import * as fromAuth from '../../ngrx/reducers/auth.reducers';
 
 @Injectable({
   providedIn: 'root'

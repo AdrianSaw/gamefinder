@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Game } from '../../models/game';
+import { Game } from '../models/game';
 import * as GameListActions from '../ngrx/game-list.actions';
 import * as fromGameList from '../ngrx/game-list.reducer';
 import { Subscription } from 'rxjs';

@@ -3,8 +3,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 
 import { Store } from '@ngrx/store';
-import * as fromAuth from './core/auth/ngrx/auth.reducers';
-import * as AuthActions from './core/auth/ngrx/auth.actions';
+import * as fromAuth from './ngrx/reducers/auth.reducers';
+import * as AuthActions from './ngrx/actions/auth.actions';
 import * as fromApp from './ngrx/app.reducers';
 
 @Component({
@@ -19,11 +19,12 @@ export class AppComponent implements OnInit {
     public translate: TranslateService,
     private store: Store<fromApp.AppState>
   ) {
-    translate.addLangs(['pl', 'en']);
-    translate.setDefaultLang('pl');
-    const browserLang = translate.getBrowserLang();
-    this.language = browserLang.match(/pl|en/) ? browserLang : 'pl';
-    translate.use(this.language);
+    // TODO: Add translations
+
+    // translate.addLangs(['pl-Pl', 'en-En']);
+    // const browserLang = translate.getBrowserLang();
+    // this.language = browserLang.match(/pl|en/) ? browserLang : 'pl';
+    translate.use('pl');
   }
 
   ngOnInit() {

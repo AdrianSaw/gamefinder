@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../ngrx/app.reducers';
-import * as AuthActions from '../../core/auth/ngrx/auth.actions';
+import * as AuthActions from '../../ngrx/actions/auth.actions';
 
 @Component({
   selector: 'app-signin',
